@@ -21,14 +21,21 @@ namespace HolidayRequestsApp.Infrastructure.Repositories.HolidayRequests
         /// <summary>
         /// delete holiday request
         /// </summary>
-        /// <param name="holidayRequest"></param>
-        /// <returns></returns>
         Task RemoveAsync(HolidayRequestDataModel holidayRequest);
 
         /// <summary>
         /// Save changes
         /// </summary>
-        /// <returns></returns>
         Task SaveChangesAsync();
+
+        /// <summary>
+        /// Add holiday request
+        /// </summary>
+        Task AddAsync(HolidayRequestDataModel holiday);
+
+        /// <summary>
+        /// Update holiday request
+        /// </summary>
+        Task Update(HolidayRequestDataModel holiday);
     }
 }

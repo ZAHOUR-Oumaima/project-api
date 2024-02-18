@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using HolidayRequestsApp.Controllers.HolidayRequests.Models.Query;
 using HolidayRequestsApp.Controllers.HolidayRequests.Models.Response;
 using HolidayRequestsApp.Infrastructure.Data.Models.HolidayRequests;
 using System;
@@ -13,7 +14,9 @@ namespace HolidayRequestsApp.Helpers
         public MappingProfile()
         {
             #region Holiday requests
+            CreateMap<HolidayRequestDataModel, HolidayRequestItemResponse>();
             CreateMap<HolidayRequestDataModel, HolidayRequestResponse>();
+            CreateMap<HolidayRequestQuery, HolidayRequestDataModel> ();
             #endregion
         }
     }

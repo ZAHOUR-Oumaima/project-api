@@ -1,12 +1,11 @@
-﻿using HolidayRequestsApp.Infrastructure.Data.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HolidayRequestsApp.Controllers.HolidayRequests.Models.Response
+namespace HolidayRequestsApp.Controllers.HolidayRequests.Models.Query
 {
-    public class HolidayRequestResponse
+    public class HolidayRequestQuery
     {
         public Guid Id { get; set; }
         public string Collaborator { get; set; }
@@ -14,6 +13,5 @@ namespace HolidayRequestsApp.Controllers.HolidayRequests.Models.Response
         public DateTime EndDate { get; set; }
         public string Observation { get; set; }
         public DateTime RequestDate { get; set; }
-        public ValidationStatus Status { get; set; }
     }
 }

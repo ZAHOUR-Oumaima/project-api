@@ -53,5 +53,24 @@ namespace HolidayRequestsApp.Infrastructure.Repositories.HolidayRequests
         {
             await _context.SaveChangesAsync();
         }
+
+        /// <summary>
+        /// Add holiday request
+        /// </summary>
+        /// <returns></returns>
+        public virtual async Task AddAsync(HolidayRequestDataModel holiday)
+        {
+            await _context.HolidayRequests.AddAsync(holiday);
+        }
+
+        /// <summary>
+        /// Update holiday request
+        /// </summary>
+        /// <returns></returns>
+        public virtual Task Update(HolidayRequestDataModel holiday)
+        {
+            _context.HolidayRequests.Update(holiday);
+            return Task.CompletedTask;
+        }
     }
 }
