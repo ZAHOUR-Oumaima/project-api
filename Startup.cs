@@ -30,6 +30,12 @@ namespace HolidayRequestsApp
         {
             services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(Configuration["AppSettings:ConnectionString"]));
             services.AddControllers();
+            services.AddSwaggerGen();
+            services.AddOpenApiDocument(config =>
+            {
+                config.Title = "Mon API";
+            });
+
             services.AddAutoMapper(GetType().Assembly);
             services.AddCors(options =>
             {
@@ -61,6 +67,17 @@ namespace HolidayRequestsApp
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            
+            // Swagger UI
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = ""; // Swagger à la racine (http://localhost:5000)
+            });
+
+            app.UseOpenApi();        // Sert le fichier swagger.json
+            app.UseSwaggerUi3();     // Sert l’interface Swagger UI
+
             app.UseCors(DefaultCorsPolicy);
 
             app.UseStaticFiles();
